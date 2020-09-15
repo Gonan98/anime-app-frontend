@@ -16,7 +16,7 @@ function AnimeList(props) {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const res = await axios.get("http://localhost:5000/api/animes", {
+        const res = await axios.get(process.env.API_URL || 'https://animefav.herokuapp.com/' + '/api/animes', {
           headers: { "access-token": token },
         });
         setWatchedAnimes(res.data);

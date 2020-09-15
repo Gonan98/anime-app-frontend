@@ -5,7 +5,7 @@ export default function WatchedAnime(props) {
   const handleClick = () => {
     const token = localStorage.getItem('token');
     axios
-      .delete(`http://localhost:5000/api/animes/${props.id}`, {
+      .delete(process.env.API_URL || 'https://animefav.herokuapp.com/' + `/api/animes/${props.id}`, {
         headers: { "access-token": token },
       })
       .then((res) => {

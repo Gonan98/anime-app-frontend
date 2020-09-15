@@ -11,7 +11,7 @@ function UserRegister() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/signup", {
+      .post(process.env.API_URL || 'https://animefav.herokuapp.com/' + '/api/signup', {
         username,
         email,
         password,

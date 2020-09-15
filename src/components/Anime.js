@@ -14,7 +14,7 @@ function Anime(props) {
   const handleClick = () => {
     axios
       .post(
-        process.env.API_URL || 'https://animefav.herokuapp.com/' + '/api/animes',
+        process.env.API_URL || 'https://animefav.herokuapp.com' + '/api/animes',
         {
           title: props.title,
           synopsis: props.synopsis,

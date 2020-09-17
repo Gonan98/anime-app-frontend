@@ -21,7 +21,7 @@ function App() {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const res = await axios.get(process.env.API_URL || 'https://animefav.herokuapp.com' + '/api/profile', {
+        const res = await axios.get('/api/profile', {
           headers: { "access-token": token },
         });
         setUsername(res.data.username);
@@ -33,7 +33,7 @@ function App() {
 
   const signIn = async (username, password) => {
     try {
-      const res = await axios.post(process.env.API_URL || 'https://animefav.herokuapp.com' + '/api/signin', {
+      const res = await axios.post('/api/signin', {
         username,
         password,
       });

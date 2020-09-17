@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/anime-app-frontend/static/js/main.cf5f0890.chunk.js",
-    "main.js.map": "/anime-app-frontend/static/js/main.cf5f0890.chunk.js.map",
+    "main.js": "/anime-app-frontend/static/js/main.ce7bfd14.chunk.js",
+    "main.js.map": "/anime-app-frontend/static/js/main.ce7bfd14.chunk.js.map",
     "runtime-main.js": "/anime-app-frontend/static/js/runtime-main.274a6633.js",
     "runtime-main.js.map": "/anime-app-frontend/static/js/runtime-main.274a6633.js.map",
     "static/css/2.75f81579.chunk.css": "/anime-app-frontend/static/css/2.75f81579.chunk.css",
     "static/js/2.5a0bb7cf.chunk.js": "/anime-app-frontend/static/js/2.5a0bb7cf.chunk.js",
     "static/js/2.5a0bb7cf.chunk.js.map": "/anime-app-frontend/static/js/2.5a0bb7cf.chunk.js.map",
     "index.html": "/anime-app-frontend/index.html",
-    "precache-manifest.39ad62914eaa45ca31c62e37a23f1bb8.js": "/anime-app-frontend/precache-manifest.39ad62914eaa45ca31c62e37a23f1bb8.js",
+    "precache-manifest.619dce50702595d7854c452bd7679d00.js": "/anime-app-frontend/precache-manifest.619dce50702595d7854c452bd7679d00.js",
     "service-worker.js": "/anime-app-frontend/service-worker.js",
     "static/css/2.75f81579.chunk.css.map": "/anime-app-frontend/static/css/2.75f81579.chunk.css.map",
     "static/js/2.5a0bb7cf.chunk.js.LICENSE.txt": "/anime-app-frontend/static/js/2.5a0bb7cf.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.274a6633.js",
     "static/css/2.75f81579.chunk.css",
     "static/js/2.5a0bb7cf.chunk.js",
-    "static/js/main.cf5f0890.chunk.js"
+    "static/js/main.ce7bfd14.chunk.js"
   ]
 }

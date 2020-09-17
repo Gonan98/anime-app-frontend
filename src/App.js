@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import AnimeList from "./components/AnimeList";
 import UserLogin from "./components/UserLogin";
@@ -54,19 +54,19 @@ function App() {
     <div className="p-2">
       <Router>
         <Navigation username={username} signOut={signOut} />
-        <Route path="/" exact>
-          <AnimeList />
-        </Route>
-        <Route path="/signup" component={UserRegister} />
-        <Route path="/signin">
-          <UserLogin signIn={signIn} />
-        </Route>
-        <Route path="/about" component={About} />
-        <Route path="/vistos">
-          <WatchedList />
-        </Route>
-        <Route path="/anime/:id" component={AnimeInfo} />
-        <Route path="/perfil" component={Perfil} />
+        <Switch>
+          <Route path="/" component={AnimeList} />
+          <Route path="/signup" component={UserRegister} />
+          <Route path="/signin">
+            <UserLogin signIn={signIn} />
+          </Route>
+          <Route path="/about" component={About} />
+          <Route path="/vistos">
+            <WatchedList />
+          </Route>
+          <Route path="/anime/:id" component={AnimeInfo} />
+          <Route path="/perfil" component={Perfil} />
+        </Switch>
       </Router>
     </div>
   );

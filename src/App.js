@@ -55,7 +55,7 @@ function App() {
       <Router>
         <Navigation username={username} signOut={signOut} />
         <Switch>
-          <Route path="/" component={AnimeList} />
+          <Route exact path="/" component={AnimeList} />
           <Route path="/signup" component={UserRegister} />
           <Route path="/signin">
             <UserLogin signIn={signIn} />

@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.js": "/anime-app-frontend/static/js/main.ce7bfd14.chunk.js",
-    "main.js.map": "/anime-app-frontend/static/js/main.ce7bfd14.chunk.js.map",
-    "runtime-main.js": "/anime-app-frontend/static/js/runtime-main.274a6633.js",
-    "runtime-main.js.map": "/anime-app-frontend/static/js/runtime-main.274a6633.js.map",
-    "static/css/2.75f81579.chunk.css": "/anime-app-frontend/static/css/2.75f81579.chunk.css",
-    "static/js/2.5a0bb7cf.chunk.js": "/anime-app-frontend/static/js/2.5a0bb7cf.chunk.js",
-    "static/js/2.5a0bb7cf.chunk.js.map": "/anime-app-frontend/static/js/2.5a0bb7cf.chunk.js.map",
-    "index.html": "/anime-app-frontend/index.html",
-    "precache-manifest.619dce50702595d7854c452bd7679d00.js": "/anime-app-frontend/precache-manifest.619dce50702595d7854c452bd7679d00.js",
-    "service-worker.js": "/anime-app-frontend/service-worker.js",
-    "static/css/2.75f81579.chunk.css.map": "/anime-app-frontend/static/css/2.75f81579.chunk.css.map",
-    "static/js/2.5a0bb7cf.chunk.js.LICENSE.txt": "/anime-app-frontend/static/js/2.5a0bb7cf.chunk.js.LICENSE.txt",
-    "static/media/all.min.css": "/anime-app-frontend/static/media/fa-solid-900.ee09ad75.woff"
+    "main.js": "/Gonan98.github.io/animefav/static/js/main.5c305791.chunk.js",
+    "main.js.map": "/Gonan98.github.io/animefav/static/js/main.5c305791.chunk.js.map",
+    "runtime-main.js": "/Gonan98.github.io/animefav/static/js/runtime-main.7117db24.js",
+    "runtime-main.js.map": "/Gonan98.github.io/animefav/static/js/runtime-main.7117db24.js.map",
+    "static/css/2.870b7d21.chunk.css": "/Gonan98.github.io/animefav/static/css/2.870b7d21.chunk.css",
+    "static/js/2.5a0bb7cf.chunk.js": "/Gonan98.github.io/animefav/static/js/2.5a0bb7cf.chunk.js",
+    "static/js/2.5a0bb7cf.chunk.js.map": "/Gonan98.github.io/animefav/static/js/2.5a0bb7cf.chunk.js.map",
+    "index.html": "/Gonan98.github.io/animefav/index.html",
+    "precache-manifest.20cb91e94a60951d64f92ea3249c4e76.js": "/Gonan98.github.io/animefav/precache-manifest.20cb91e94a60951d64f92ea3249c4e76.js",
+    "service-worker.js": "/Gonan98.github.io/animefav/service-worker.js",
+    "static/css/2.870b7d21.chunk.css.map": "/Gonan98.github.io/animefav/static/css/2.870b7d21.chunk.css.map",
+    "static/js/2.5a0bb7cf.chunk.js.LICENSE.txt": "/Gonan98.github.io/animefav/static/js/2.5a0bb7cf.chunk.js.LICENSE.txt",
+    "static/media/all.min.css": "/Gonan98.github.io/animefav/static/media/fa-solid-900.ee09ad75.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.274a6633.js",
-    "static/css/2.75f81579.chunk.css",
+    "static/js/runtime-main.7117db24.js",
+    "static/css/2.870b7d21.chunk.css",
     "static/js/2.5a0bb7cf.chunk.js",
-    "static/js/main.ce7bfd14.chunk.js"
+    "static/js/main.5c305791.chunk.js"
   ]
 }

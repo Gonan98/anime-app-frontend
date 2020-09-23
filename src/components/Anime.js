@@ -1,66 +1,55 @@
 import React from "react";
-import axios from "axios";
 import { useState } from "react";
-import { useEffect } from "react";
+import { saveAnime } from "../helpers/animeHelper";
 
-function Anime(props) {
-  const token = localStorage.getItem("token");
-  const [guardado, setGuardado] = useState(false);
+function Anime({ title, synopsis, episodes, image_url, type, saved }) {
+  const [isSaved, setIsSaved] = useState(saved);
 
-  useEffect(() => {
-    setGuardado(props.saved);
-  }, [props.saved]);
-
-  const handleClick = () => {
-    axios
-      .post('/api/animes',
-        {
-          title: props.title,
-          synopsis: props.synopsis,
-          episodes: props.episodes,
-          image_url: props.image_url,
-          type: props.type,
-        },
-        {
-          headers: {
-            "access-token": token,
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-        setGuardado(true);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const handleClick = (status) => {
+    const token = localStorage.getItem("token");
+    saveAnime(token, { title, synopsis, episodes, image_url, type, status })
+      .then((res) => setIsSaved(true))
+      .catch((err) =>
+        window.alert("Debe iniciar sesion si quiere guardar un anime")
+      );
   };
 
   const showButton = () => {
-    if (guardado) {
-      return <button className="btn btn-success">Añadido</button>;
-    } else {
+    if (isSaved) {
       return (
-        <button className="btn btn-info" onClick={handleClick}>
-          Añadir
+        <button className="btn btn-info btn-sm">
+          <i className="fa fa-check" aria-hidden="true" />
         </button>
       );
     }
+
+    return (
+      <div className="d-flex justify-content-between">
+        <button className="btn btn-primary btn-sm" onClick={() => handleClick('watched')}>
+          <i className="fa fa-plus" aria-hidden="true" />
+        </button>
+        <button className="btn btn-primary btn-sm" onClick={() => handleClick('towatch')} >
+          <i className="fa fa-eye" aria-hidden="true" />
+        </button>
+      </div>
+    );
   };
 
   return (
-    <div className="col mb-4">
-      <div className="card h-100">
-        <div className="row no-gutters">
-          <div className="col-md-4">
-            <img src={props.image_url} className="card-img" alt={props.title} />
-          </div>
-          <div className="col-md-8">
-            <div className="card-body">
-              <strong className="card-title">{props.title}</strong>
-              <p className="card-text">Episodios: {props.episodes}</p>
-              <p className="card-text">Tipo: {props.type}</p>
-              {showButton()}
+    <div className="container">
+      <div className="col mb-4">
+        <div className="card h-100">
+          <div className="row no-gutters">
+            <div className="col-md-4">
+              <img src={image_url} className="card-img" alt={title} />
+            </div>
+            <div className="col-md-8">
+              <div className="card-body">
+                <strong className="card-title">{title}</strong>
+                <p className="card-text">Episodios: {episodes}</p>
+                <p className="card-text">Tipo: {type}</p>
+                {showButton()}
+              </div>
             </div>
           </div>
         </div>

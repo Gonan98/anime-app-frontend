@@ -1,8 +1,7 @@
 {
-  "name": "anime-app",
+  "name": "animefav-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "Gonan98.github.io/animefav",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@testing-library/jest-dom": "^4.2.4",

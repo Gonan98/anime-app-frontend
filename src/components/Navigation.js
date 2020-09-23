@@ -1,16 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navigation = (props) => {
+const Navigation = ({setIsAuth, username}) => {
+
+  const signOut = () => {
+    localStorage.removeItem('token');
+    setIsAuth(false);
+  }
 
   const navigationUser = () => {
-    if (props.username) {
+    if (username) {
       return (
         <div className="collapse navbar-collapse" id="navbarColor02">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/vistos">
                 Vistos
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/por-ver">
+                Por ver
               </Link>
             </li>
             <li className="nav-item">
@@ -22,14 +32,14 @@ const Navigation = (props) => {
           <ul className="navbar-nav mr-right">
             <li className="nav-item">
               <Link className="nav-link text-white" to="/perfil">
-                {props.username}
+                {username}
               </Link>
             </li>
             <li className="nav-item">
               <Link
                 className="nav-link text-white"
                 to="/"
-                onClick={props.signOut}
+                onClick={signOut}
               >
                 Salir
               </Link>
@@ -62,7 +72,7 @@ const Navigation = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <Link className="navbar-brand" to="/">
-        Anime App
+        Animefav
       </Link>
       <button
         className="navbar-toggler"

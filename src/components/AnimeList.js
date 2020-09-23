@@ -2,55 +2,44 @@ import React, { Fragment, useState, useEffect } from "react";
 
 import axios from "axios";
 import Anime from "./Anime";
+import { getAllAnimes } from "../helpers/animeHelper";
 
-function AnimeList(props) {
-  const [nombre, setNombre] = useState("");
+function AnimeList() {
+  const [nombre, setNombre] = useState('');
   const [animes, setAnimes] = useState([]);
-  const [watchedAnimes, setWatchedAnimes] = useState([]);
+  const [savedAnimes, setSavedAnimes] = useState([]);
 
   useEffect(() => {
-    getAnimes();
-  }, []);
-
-  const getAnimes = async function () {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (token) {
-      try {
-        const res = await axios.get('/api/animes', {
-          headers: { "access-token": token },
-        });
-        setWatchedAnimes(res.data);
-      } catch (error) {
-        console.log(error);
-      }
+      getAllAnimes(token)
+        .then(res => setSavedAnimes(res))
+        .catch(err => console.log(err));
     }
-  };
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
       .get(`https://api.jikan.moe/v3/search/anime?q=${nombre}`)
       .then((res) => {
-        const data = res.data.results;
-        setAnimes(data);
+        const { results } = res.data;
+        setAnimes(results);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  const handleChange = (event) => {
-    setNombre(event.target.value);
-  };
-
   const isSaved = (title) => {
-    return watchedAnimes.filter((animu) => animu.title === title).length > 0;
+    return savedAnimes.filter((anime) => anime.title === title).length > 0;
   };
 
   const loadAnimes = () => {
     return animes.map((animu) => (
       <Anime
         key={animu.mal_id}
+        id={animu.mal_id}
         title={animu.title}
         synopsis={animu.synopsis}
         episodes={animu.episodes}
@@ -70,7 +59,7 @@ function AnimeList(props) {
             placeholder="Nombre del anime"
             type="text"
             value={nombre}
-            onChange={handleChange}
+            onChange={(e) => setNombre(e.target.value)}
           />
           <button type="submit" className="btn btn-primary">
             Buscar
@@ -78,6 +67,7 @@ function AnimeList(props) {
         </div>
       </form>
       <div className="row row-cols-1 row-cols-md-4 p-4">{loadAnimes()}</div>
+
     </Fragment>
   );
 }

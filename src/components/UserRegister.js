@@ -6,10 +6,13 @@ function UserRegister() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
   const [registro, setRegistro] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true);
     axios
       .post('/api/signup', {
         username,
@@ -22,27 +25,13 @@ function UserRegister() {
         setEmail('');
         setPassword('');
         setConfirmPassword('');
+        setLoading(false);
         setRegistro(true);
       })
       .catch((err) => {
         console.log(err);
+        setError('Este correo o usuario ya está registrado');
       });
-  };
-
-  const handleUserNameChange = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
   };
 
   const showPasswordAlert = () => {
@@ -68,9 +57,28 @@ function UserRegister() {
     }
   };
 
+  const showError = () => {
+    if (error) {
+      return (
+        <div className="alert alert-danger" role="alert">
+          {error}
+        </div>
+      );
+    }
+  }
+
+  const showSpinner = () => {
+    if (loading) {
+      return (
+        <div className="spinner-border text-primary" role="status" />
+      );
+    }
+  }
+
   return (
     <div className="card mt-5 mx-auto" style={{ width: "30rem" }}>
       {showSignupAlert()}
+      {showError()}
       <div className="card-body">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -78,7 +86,7 @@ function UserRegister() {
             <input
               type="text"
               value={username}
-              onChange={handleUserNameChange}
+              onChange={e => setUsername(e.target.value)}
               className="form-control"
             />
           </div>
@@ -87,7 +95,7 @@ function UserRegister() {
             <input
               type="email"
               value={email}
-              onChange={handleEmailChange}
+              onChange={e => setEmail(e.target.value)}
               className="form-control"
             />
           </div>
@@ -96,7 +104,7 @@ function UserRegister() {
             <input
               type="password"
               value={password}
-              onChange={handlePasswordChange}
+              onChange={e => setPassword(e.target.value)}
               className="form-control"
             />
           </div>
@@ -105,7 +113,7 @@ function UserRegister() {
             <input
               type="password"
               value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
+              onChange={e => setConfirmPassword(e.target.value)}
               className="form-control"
             />
             {showPasswordAlert()}
@@ -115,6 +123,7 @@ function UserRegister() {
           </button>
         </form>
       </div>
+      {showSpinner()}
     </div>
   );
 }

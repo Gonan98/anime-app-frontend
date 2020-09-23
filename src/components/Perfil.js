@@ -1,7 +1,10 @@
-import React from "react";
+import React from 'react'
 
-function Perfil() {
-  return <div>Mi Perfil</div>;
+export default function Perfil() {
+  return (
+    <div className="container">
+      <h2>Mi Perfil</h2>
+    </div>
+  )
 }
 
-export default Perfil;

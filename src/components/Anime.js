@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 
-function Anime({ title, synopsis, episodes, image_url, type, saved }) {
+function Anime({title, synopsis, episodes, image_url, type, saved }) {
   const [isSaved, setIsSaved] = useState(saved);
 
   const handleClick = () => {
@@ -16,7 +16,7 @@ function Anime({ title, synopsis, episodes, image_url, type, saved }) {
           episodes,
           image_url,
           type,
-          status: "towatch",
+          status: "watched",
         },
         {
           headers: {
@@ -42,14 +42,14 @@ function Anime({ title, synopsis, episodes, image_url, type, saved }) {
     }
 
     return (
-      <button className="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+      <button className="btn btn-primary btn-sm" onClick={handleClick}>
         <i className="fa fa-plus" aria-hidden="true" />
       </button>
     );
   };
 
   return (
-    <>
+    <div className="container">
       <div className="col mb-4">
         <div className="card h-100">
           <div className="row no-gutters">
@@ -67,28 +67,7 @@ function Anime({ title, synopsis, episodes, image_url, type, saved }) {
           </div>
         </div>
       </div>
-      <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <i className="fas fa-times" />
-              </button>
-            </div>
-            <div className="modal-body">
-              ...
-            </div>
-            <div className="modal-footer">
-              <div className="d-flex justify-content-between">
-              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    </div>
   );
 }
 

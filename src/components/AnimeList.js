@@ -39,6 +39,7 @@ function AnimeList() {
     return animes.map((animu) => (
       <Anime
         key={animu.mal_id}
+        id={animu.mal_id}
         title={animu.title}
         synopsis={animu.synopsis}
         episodes={animu.episodes}

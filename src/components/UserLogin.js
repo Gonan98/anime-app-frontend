@@ -1,28 +1,34 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
+import axios from "axios";
 
-function UserLogin(props) {
+function UserLogin({setIsAuth}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
-  const [loginError, setLoginError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const valid = await props.signIn(username,password);
-    if (valid) {
-      setRedirect(true);
-    } else {
-      setLoginError(true);
-    }
-  };
+    setLoading(true);
 
-  const handleChangeUsername = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handleChangePassword = (event) => {
-    setPassword(event.target.value);
+    axios
+      .post("/api/signin", {
+        username,
+        password,
+      })
+      .then((res) => {
+        localStorage.setItem('token', res.data.token);
+        setLoading(false);
+        setIsAuth(true);
+        setRedirect(true);
+      })
+      .catch((err) => {
+        console.error(err);
+        setError('Usuario o contraseña incorrectos');
+        setLoading(false);
+      });
   };
 
   const redirectToHome = () => {
@@ -32,11 +38,19 @@ function UserLogin(props) {
   };
 
   const showLoginError = () => {
-    if (loginError) {
+    if (error) {
       return (
         <div className="alert alert-danger" role="alert">
-          Usuario o contraseña incorrectos
+          {error}
         </div>
+      );
+    }
+  };
+
+  const showSpinner = () => {
+    if (loading) {
+      return (
+        <div className="spinner-border text-primary" role="status" />
       );
     }
   };
@@ -50,7 +64,7 @@ function UserLogin(props) {
             <input
               type="text"
               value={username}
-              onChange={handleChangeUsername}
+              onChange={e => setUsername(e.target.value)}
               className="form-control"
             />
           </div>
@@ -59,7 +73,7 @@ function UserLogin(props) {
             <input
               type="password"
               value={password}
-              onChange={handleChangePassword}
+              onChange={e => setPassword(e.target.value)}
               className="form-control"
             />
           </div>
@@ -67,6 +81,7 @@ function UserLogin(props) {
             Iniciar sesion
           </button>
           {showLoginError()}
+          {showSpinner()}
           <p>
             ¿No tiene una cuenta? Regístrese <Link to="/signup">aquí</Link>
           </p>

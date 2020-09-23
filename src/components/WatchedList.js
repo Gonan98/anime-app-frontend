@@ -1,26 +1,19 @@
-import React, { Fragment } from "react";
+import React from "react";
 import WatchedAnime from "./WatchedAnime";
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import { getWatchedAnimes } from "../helpers/animeHelper";
 
 function WatchedList() {
   const [animes, setAnimes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const getAnimes = async function() {
-    try {
-      const token = localStorage.getItem('token');
-      const res = await axios.get('/api/animes',{headers:{'access-token': token}});
-      setAnimes(res.data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    getAnimes();
+  useEffect( () => {
+    const token = localStorage.getItem('token');
+    getWatchedAnimes(token)
+      .then(res => {
+        setAnimes(res);
+        setLoading(false);
+      }).catch(err => console.log(err));
   }, []);
 
   const loadWatchedAnimes = () => {
@@ -37,17 +30,18 @@ function WatchedList() {
         episodes={animu.episodes}
         type={animu.type}
         image_url={animu.image_url}
-        reload={getAnimes}
+        setAnimes={setAnimes}
       />
     ));
   };
 
   return (
-    <Fragment>
-      <div className="row row-cols-1 row-cols-md-3 p-4">
+    <div className="p-4">
+      <h2>Animes vistos</h2>
+      <div className="row row-cols-1 row-cols-md-3">
         {loadWatchedAnimes()}
       </div>
-    </Fragment>
+    </div>
   );
 }
 

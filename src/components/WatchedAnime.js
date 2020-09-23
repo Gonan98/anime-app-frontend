@@ -1,18 +1,18 @@
 import React from "react";
-import axios from "axios";
+import { deleteAnime, getWatchedAnimes } from "../helpers/animeHelper";
 
-export default function WatchedAnime(props) {
-  const handleClick = () => {
-    const token = localStorage.getItem('token');
-    axios
-      .delete(`/api/animes/${props.id}`, {
-        headers: { "access-token": token },
-      })
-      .then((res) => {
-        console.log(res);
-        props.reload();
-      })
-      .catch((err) => console.log(err));
+export default function WatchedAnime({id, title, episodes, type, image_url, setAnimes}) {
+  const handleClick = async () => {
+    try {
+      if (window.confirm("¿Desea quitarlo de la lista?")) {
+        const token = localStorage.getItem("token");
+        await deleteAnime(token, id);
+        const animes = await getWatchedAnimes(token);
+        setAnimes(animes);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -20,17 +20,16 @@ export default function WatchedAnime(props) {
       <div className="card h-100">
         <div className="row no-gutters">
           <div className="col-md-4">
-            <img src={props.image_url} className="card-img" alt={props.title} />
+            <img src={image_url} className="card-img" alt={title} />
           </div>
           <div className="col-md-8">
             <div className="card-body">
-              <strong className="card-title">{props.title}</strong>
-              <p className="card-text">Episodios: {props.episodes}</p>
-              <p className="card-text">Tipo: {props.type}</p>
-              <button
-                className="btn btn-warning btn-sm fas fa-times"
-                onClick={handleClick}
-              />
+              <strong className="card-title">{title}</strong>
+              <p className="card-text">Episodios: {episodes}</p>
+              <p className="card-text">Tipo: {type}</p>
+              <button className="btn btn-danger btn-sm" onClick={handleClick}>
+                <i className="fas fa-times"></i>
+              </button>
             </div>
           </div>
         </div>

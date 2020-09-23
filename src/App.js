@@ -8,63 +8,49 @@ import About from "./components/About";
 import WatchedList from "./components/WatchedList";
 import AnimeInfo from "./components/AnimeInfo";
 import Perfil from "./components/Perfil";
-import axios from "axios";
+import ToWatchList from "./components/ToWatchList";
+import { getProfile } from "./helpers/userHelper";
 
 function App() {
+
+  const [isAuth, setIsAuth] = useState(false);
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-    getUsername();
-  }, []);
-
-  const getUsername = async () => {
     const token = localStorage.getItem('token');
     if (token) {
-      try {
-        const res = await axios.get('/api/profile', {
-          headers: { "access-token": token },
-        });
-        setUsername(res.data.username);
-      } catch (error) {
-        console.log(error);
-      }
+      getProfile(token)
+        .then(res => {
+          setIsAuth(true);
+          setUsername(res.username);
+        })
+        .catch(err => console.log(err));
+    } else {
+      setUsername('');
+      setIsAuth(false);
     }
-  };
-
-  const signIn = async (username, password) => {
-    try {
-      const res = await axios.post('/api/signin', {
-        username,
-        password,
-      });
-      localStorage.setItem("token", res.data.token);
-      await getUsername();
-      return true;
-    } catch (error) {
-      return false;
-    }
-  };
-
-  const signOut = () => {
-    localStorage.removeItem("token");
-    setUsername('');
-  };
+  }, [isAuth]);
 
   return (
-    <div className="p-2">
+    <div className="px-3">
       <Router>
-        <Navigation username={username} signOut={signOut} />
+        <Navigation setIsAuth={setIsAuth} username={username} />
         <Switch>
-          <Route exact path="/" component={AnimeList} />
+          <Route exact path="/">
+            <AnimeList />
+          </Route>
           <Route path="/signup" component={UserRegister} />
           <Route path="/signin">
-            <UserLogin signIn={signIn} />
+            <UserLogin setIsAuth={setIsAuth} />
           </Route>
           <Route path="/about" component={About} />
           <Route path="/vistos">
             <WatchedList />
           </Route>
-          <Route path="/anime/:id" component={AnimeInfo} />
+          <Route path="/por-ver">
+            <ToWatchList />
+          </Route>
+          <Route path="/animes/:id" component={AnimeInfo} />
           <Route path="/perfil" component={Perfil} />
         </Switch>
       </Router>

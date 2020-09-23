@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.js": "/gonan98.github.io/anime-app-frontend/static/js/main.c0ea671d.chunk.js",
-    "main.js.map": "/gonan98.github.io/anime-app-frontend/static/js/main.c0ea671d.chunk.js.map",
-    "runtime-main.js": "/gonan98.github.io/anime-app-frontend/static/js/runtime-main.16e6fb09.js",
-    "runtime-main.js.map": "/gonan98.github.io/anime-app-frontend/static/js/runtime-main.16e6fb09.js.map",
-    "static/css/2.b0121cae.chunk.css": "/gonan98.github.io/anime-app-frontend/static/css/2.b0121cae.chunk.css",
-    "static/js/2.97f45249.chunk.js": "/gonan98.github.io/anime-app-frontend/static/js/2.97f45249.chunk.js",
-    "static/js/2.97f45249.chunk.js.map": "/gonan98.github.io/anime-app-frontend/static/js/2.97f45249.chunk.js.map",
-    "index.html": "/gonan98.github.io/anime-app-frontend/index.html",
-    "precache-manifest.cdfacfb17c93a058127657dc3caba6ab.js": "/gonan98.github.io/anime-app-frontend/precache-manifest.cdfacfb17c93a058127657dc3caba6ab.js",
-    "service-worker.js": "/gonan98.github.io/anime-app-frontend/service-worker.js",
-    "static/css/2.b0121cae.chunk.css.map": "/gonan98.github.io/anime-app-frontend/static/css/2.b0121cae.chunk.css.map",
-    "static/js/2.97f45249.chunk.js.LICENSE.txt": "/gonan98.github.io/anime-app-frontend/static/js/2.97f45249.chunk.js.LICENSE.txt",
-    "static/media/all.min.css": "/gonan98.github.io/anime-app-frontend/static/media/fa-solid-900.ee09ad75.woff"
+    "main.js": "/anime-app-frontend/static/js/main.c0ea671d.chunk.js",
+    "main.js.map": "/anime-app-frontend/static/js/main.c0ea671d.chunk.js.map",
+    "runtime-main.js": "/anime-app-frontend/static/js/runtime-main.9c5cf26f.js",
+    "runtime-main.js.map": "/anime-app-frontend/static/js/runtime-main.9c5cf26f.js.map",
+    "static/css/2.75f81579.chunk.css": "/anime-app-frontend/static/css/2.75f81579.chunk.css",
+    "static/js/2.97f45249.chunk.js": "/anime-app-frontend/static/js/2.97f45249.chunk.js",
+    "static/js/2.97f45249.chunk.js.map": "/anime-app-frontend/static/js/2.97f45249.chunk.js.map",
+    "index.html": "/anime-app-frontend/index.html",
+    "precache-manifest.04b68e6bd2703a066e2398c178e96571.js": "/anime-app-frontend/precache-manifest.04b68e6bd2703a066e2398c178e96571.js",
+    "service-worker.js": "/anime-app-frontend/service-worker.js",
+    "static/css/2.75f81579.chunk.css.map": "/anime-app-frontend/static/css/2.75f81579.chunk.css.map",
+    "static/js/2.97f45249.chunk.js.LICENSE.txt": "/anime-app-frontend/static/js/2.97f45249.chunk.js.LICENSE.txt",
+    "static/media/all.min.css": "/anime-app-frontend/static/media/fa-solid-900.ee09ad75.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.16e6fb09.js",
-    "static/css/2.b0121cae.chunk.css",
+    "static/js/runtime-main.9c5cf26f.js",
+    "static/css/2.75f81579.chunk.css",
     "static/js/2.97f45249.chunk.js",
     "static/js/main.c0ea671d.chunk.js"
   ]

@@ -1,14 +1,13 @@
 import React from "react";
-import { deleteAnime, getWatchedAnimes } from "../helpers/animeHelper";
+import { deleteAnime } from "../helpers/animeHelper";
 
-export default function WatchedAnime({id, title, episodes, type, image_url, setAnimes}) {
+export default function SavedAnime({id, title, episodes, type, image_url, reload}) {
   const handleClick = async () => {
     try {
       if (window.confirm("¿Desea quitarlo de la lista?")) {
         const token = localStorage.getItem("token");
         await deleteAnime(token, id);
-        const animes = await getWatchedAnimes(token);
-        setAnimes(animes);
+        reload(true);
       }
     } catch (error) {
       console.log(error);

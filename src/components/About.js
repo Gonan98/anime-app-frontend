@@ -5,8 +5,7 @@ function About() {
     <div className="jumbotron">
       <h1 className="display-4">Sobre la aplicación...</h1>
       <p className="lead">
-        This is a simple hero unit, a simple jumbotron-style component for
-        calling extra attention to featured content or information.
+        Esta es una aplicacion web para guardar animes que hayas visto o que quieras ver en un futuro.
       </p>
       <hr className="my-4" />
       <p>

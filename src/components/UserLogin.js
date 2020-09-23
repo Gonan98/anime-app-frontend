@@ -62,6 +62,7 @@ function UserLogin({setIsAuth}) {
           <div className="form-group">
             <label htmlFor="username">Usuario</label>
             <input
+              autoFocus
               type="text"
               value={username}
               onChange={e => setUsername(e.target.value)}

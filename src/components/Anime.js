@@ -1,35 +1,17 @@
 import React from "react";
-import axios from "axios";
 import { useState } from "react";
+import { saveAnime } from "../helpers/animeHelper";
 
-function Anime({title, synopsis, episodes, image_url, type, saved }) {
+function Anime({ title, synopsis, episodes, image_url, type, saved }) {
   const [isSaved, setIsSaved] = useState(saved);
 
-  const handleClick = () => {
+  const handleClick = (status) => {
     const token = localStorage.getItem("token");
-    axios
-      .post(
-        "/api/animes",
-        {
-          title,
-          synopsis,
-          episodes,
-          image_url,
-          type,
-          status: "watched",
-        },
-        {
-          headers: {
-            "access-token": token,
-          },
-        }
-      )
-      .then((res) => {
-        setIsSaved(true);
-      })
-      .catch((err) => {
-        window.alert("Debe iniciar sesion si quiere guardar un anime");
-      });
+    saveAnime(token, { title, synopsis, episodes, image_url, type, status })
+      .then((res) => setIsSaved(true))
+      .catch((err) =>
+        window.alert("Debe iniciar sesion si quiere guardar un anime")
+      );
   };
 
   const showButton = () => {
@@ -42,9 +24,14 @@ function Anime({title, synopsis, episodes, image_url, type, saved }) {
     }
 
     return (
-      <button className="btn btn-primary btn-sm" onClick={handleClick}>
-        <i className="fa fa-plus" aria-hidden="true" />
-      </button>
+      <div className="d-flex justify-content-between">
+        <button className="btn btn-primary btn-sm" onClick={() => handleClick('watched')}>
+          <i className="fa fa-plus" aria-hidden="true" />
+        </button>
+        <button className="btn btn-primary btn-sm" onClick={() => handleClick('towatch')} >
+          <i className="fa fa-eye" aria-hidden="true" />
+        </button>
+      </div>
     );
   };
 

@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Perfil() {
   return (
-    <div>
-      Mi Perfil
+    <div className="container">
+      <h2>Mi Perfil</h2>
     </div>
   )
 }

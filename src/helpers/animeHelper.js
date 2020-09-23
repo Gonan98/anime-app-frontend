@@ -44,3 +44,13 @@ export const deleteAnime = async (token, id) => {
         return error;
     }
 }
+
+export const saveAnime = async (token, anime) => {
+    try {
+        const res = await axios.post('/api/animes', { ...anime }, {headers:{'access-token':token}});
+        return res.data;
+    } catch (error) {
+        return error;
+    }
+}
+

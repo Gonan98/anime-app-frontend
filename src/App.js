@@ -5,10 +5,9 @@ import AnimeList from "./components/AnimeList";
 import UserLogin from "./components/UserLogin";
 import UserRegister from "./components/UserRegister";
 import About from "./components/About";
-import WatchedList from "./components/WatchedList";
+import SavedAnimeList from "./components/SavedAnimeList";
 import AnimeInfo from "./components/AnimeInfo";
 import Perfil from "./components/Perfil";
-import ToWatchList from "./components/ToWatchList";
 import { getProfile } from "./helpers/userHelper";
 
 function App() {
@@ -45,10 +44,10 @@ function App() {
           </Route>
           <Route path="/about" component={About} />
           <Route path="/vistos">
-            <WatchedList />
+            <SavedAnimeList type="VISTOS" />
           </Route>
           <Route path="/por-ver">
-            <ToWatchList />
+            <SavedAnimeList type="POR VER" />
           </Route>
           <Route path="/animes/:id" component={AnimeInfo} />
           <Route path="/perfil" component={Perfil} />

@@ -36,16 +36,15 @@ function Anime({ title, synopsis, episodes, image_url, type, saved }) {
   };
 
   return (
-    <div className="container">
       <div className="col mb-4">
         <div className="card h-100">
           <div className="row no-gutters">
             <div className="col-md-4">
-              <img src={image_url} className="card-img" alt={title} />
+              <img src={image_url} className="card-img w-100" alt={title} />
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <strong className="card-title">{title}</strong>
+                <p className="card-title">{title}</p>
                 <p className="card-text">Episodios: {episodes}</p>
                 <p className="card-text">Tipo: {type}</p>
                 {showButton()}
@@ -53,7 +52,6 @@ function Anime({ title, synopsis, episodes, image_url, type, saved }) {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }

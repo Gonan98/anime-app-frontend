@@ -35,9 +35,7 @@ function App() {
       <Router>
         <Navigation setIsAuth={setIsAuth} username={username} />
         <Switch>
-          <Route exact path="/">
-            <AnimeList />
-          </Route>
+          <Route path="/animes/:id" component={AnimeInfo} />
           <Route path="/signup" component={UserRegister} />
           <Route path="/signin">
             <UserLogin setIsAuth={setIsAuth} />
@@ -49,8 +47,10 @@ function App() {
           <Route path="/por-ver">
             <SavedAnimeList typeList="POR VER" />
           </Route>
-          <Route path="/animes/:id" component={AnimeInfo} />
           <Route path="/perfil" component={Perfil} />
+          <Route path="/">
+            <AnimeList />
+          </Route>
         </Switch>
       </Router>
     </div>

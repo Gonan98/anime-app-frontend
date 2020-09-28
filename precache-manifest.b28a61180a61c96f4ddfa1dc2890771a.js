@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a1128d9eb2ede42a47a05481530ae00f",
+    "revision": "cb8d1bc7f9dab4174e8b269ecc2872bf",
     "url": "/anime-app-frontend/index.html"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/anime-app-frontend/static/js/2.8d796ac4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d5f225787c4eabf14261",
-    "url": "/anime-app-frontend/static/js/main.b7dab06b.chunk.js"
+    "revision": "88ff76df3f45dc939527",
+    "url": "/anime-app-frontend/static/js/main.9515fc8c.chunk.js"
   },
   {
     "revision": "e2eb8a6481af0e73c25d",

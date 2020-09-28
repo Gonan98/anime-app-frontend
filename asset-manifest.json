@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.js": "/anime-app-frontend/static/js/main.79a9c348.chunk.js",
-    "main.js.map": "/anime-app-frontend/static/js/main.79a9c348.chunk.js.map",
+    "main.js": "/anime-app-frontend/static/js/main.b7dab06b.chunk.js",
+    "main.js.map": "/anime-app-frontend/static/js/main.b7dab06b.chunk.js.map",
     "runtime-main.js": "/anime-app-frontend/static/js/runtime-main.9c5cf26f.js",
     "runtime-main.js.map": "/anime-app-frontend/static/js/runtime-main.9c5cf26f.js.map",
     "static/css/2.75f81579.chunk.css": "/anime-app-frontend/static/css/2.75f81579.chunk.css",
-    "static/js/2.97f45249.chunk.js": "/anime-app-frontend/static/js/2.97f45249.chunk.js",
-    "static/js/2.97f45249.chunk.js.map": "/anime-app-frontend/static/js/2.97f45249.chunk.js.map",
+    "static/js/2.8d796ac4.chunk.js": "/anime-app-frontend/static/js/2.8d796ac4.chunk.js",
+    "static/js/2.8d796ac4.chunk.js.map": "/anime-app-frontend/static/js/2.8d796ac4.chunk.js.map",
     "index.html": "/anime-app-frontend/index.html",
-    "precache-manifest.11de005bf2d329e71401895fc3395771.js": "/anime-app-frontend/precache-manifest.11de005bf2d329e71401895fc3395771.js",
+    "precache-manifest.62faf3f22ce64d5e1a4015b9efc43ff8.js": "/anime-app-frontend/precache-manifest.62faf3f22ce64d5e1a4015b9efc43ff8.js",
     "service-worker.js": "/anime-app-frontend/service-worker.js",
     "static/css/2.75f81579.chunk.css.map": "/anime-app-frontend/static/css/2.75f81579.chunk.css.map",
-    "static/js/2.97f45249.chunk.js.LICENSE.txt": "/anime-app-frontend/static/js/2.97f45249.chunk.js.LICENSE.txt",
+    "static/js/2.8d796ac4.chunk.js.LICENSE.txt": "/anime-app-frontend/static/js/2.8d796ac4.chunk.js.LICENSE.txt",
     "static/media/all.min.css": "/anime-app-frontend/static/media/fa-solid-900.ee09ad75.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.9c5cf26f.js",
     "static/css/2.75f81579.chunk.css",
-    "static/js/2.97f45249.chunk.js",
-    "static/js/main.79a9c348.chunk.js"
+    "static/js/2.8d796ac4.chunk.js",
+    "static/js/main.b7dab06b.chunk.js"
   ]
 }

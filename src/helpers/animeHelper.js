@@ -54,3 +54,11 @@ export const saveAnime = async (token, anime) => {
     }
 }
 
+export const updateAnime = async (token, anime) => {
+    try {
+        const res = await axios.put(`/api/animes/${anime.id}`, { status: anime.status }, {headers:{'access-token':token}});
+        return res.data;
+    } catch (error) {
+        return error;
+    }
+}

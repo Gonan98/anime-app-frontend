@@ -3,14 +3,14 @@ import SavedAnime from "./SavedAnime";
 import { useState, useEffect } from "react";
 import { getToWatchAnimes, getWatchedAnimes } from "../helpers/animeHelper";
 
-function SavedAnimeList({ type }) {
+function SavedAnimeList({ typeList }) {
   const [animes, setAnimes] = useState([]);
   const [reload, setReload] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect( () => {
     const token = localStorage.getItem("token");
-    if (type === 'VISTOS') {
+    if (typeList === 'VISTOS') {
       getWatchedAnimes(token)
       .then((res) => {
         setAnimes(res);
@@ -25,8 +25,13 @@ function SavedAnimeList({ type }) {
       })
       .catch((err) => console.log(err));
     }
-    setReload(false);
-  }, [type, reload]);
+
+    return () => {
+      setLoading(true);
+      setReload(false);
+    };
+
+  }, [typeList, reload]);
 
   const loadAnimes = () => {
     if (loading) {
@@ -43,13 +48,14 @@ function SavedAnimeList({ type }) {
         type={animu.type}
         image_url={animu.image_url}
         reload={setReload}
+        typeItem={typeList}
       />
     ));
   };
 
   return (
     <div className="p-4">
-      {type === "VISTOS" ? <h2>Animes Vistos</h2> : <h2>Animes Por Ver</h2>}
+      {typeList === "VISTOS" ? <h2>Animes Vistos</h2> : <h2>Animes Por Ver</h2>}
       <div className="row row-cols-1 row-cols-md-3">{loadAnimes()}</div>
     </div>
   );

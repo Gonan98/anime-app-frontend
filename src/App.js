@@ -44,10 +44,10 @@ function App() {
           </Route>
           <Route path="/about" component={About} />
           <Route path="/vistos">
-            <SavedAnimeList type="VISTOS" />
+            <SavedAnimeList typeList="VISTOS" />
           </Route>
           <Route path="/por-ver">
-            <SavedAnimeList type="POR VER" />
+            <SavedAnimeList typeList="POR VER" />
           </Route>
           <Route path="/animes/:id" component={AnimeInfo} />
           <Route path="/perfil" component={Perfil} />
